@@ -101,6 +101,13 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :duke, path: 'duke/v1' do
+    resource :weather_forecast, path: 'weather-forecast', only: :show
+    resources :land_parcels, path: 'land-parcels', only: :index
+    resources :interventions, only: :create
+    resources :issues, only: :create
+  end
+  
   namespace :iot, path: 'iot/v1' do
     resources :analyses, only: [:create], path: 'a'
   end
