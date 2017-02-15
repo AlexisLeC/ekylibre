@@ -93,10 +93,9 @@ module Procedo
           raise Procedo::Errors::FailedFunctionCall
         end
 
-        def members_count(set)
-          group = (set.is_a?(Procedo::Engine::Set) ? first_product_of(set) : set)
+        def members_count(group)
           if group.present?
-            value = group.members_at.count.to_i
+            value = group.actor.members_at(group.now).count.to_i
             return (value > 0 ? value : 0)
           else
             return 0
