@@ -107,7 +107,7 @@ Rails.application.routes.draw do
     resources :interventions, only: :create
     resources :issues, only: :create
   end
-  
+
   namespace :iot, path: 'iot/v1' do
     resources :analyses, only: [:create], path: 'a'
   end
